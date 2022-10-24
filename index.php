@@ -1,10 +1,15 @@
 <?php include "_partials/header.php" ?>
 
+<?php $data = $database->select('items', 'text'); ?>
+
 <div class="container">
     <div class="row">
         <ul class="list-group col-sm-6">
-            <li class="list-group-item">You really need to do this</li>
-            <li class="list-group-item">But you also need to do this other thing</li>
+            <?php
+            foreach ($data as $item) {
+                echo '<li class="list-group-item">' . $item . '</li>';
+            }
+            ?>
         </ul>
 
 
