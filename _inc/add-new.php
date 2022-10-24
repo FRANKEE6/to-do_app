@@ -1,3 +1,13 @@
-<p>
-    You wrote <strong><?php echo $_POST['message']; ?></strong>, or not?<br>
-</p>
+<?php
+require 'config.php';
+
+// Vloženie do databázy
+$id = $database->insert('items', [
+    'text' => $_POST['message']
+]);
+
+// Overenie úspešnosti vloženia
+if ($id) {
+    echo 'new item added!';
+    echo '<a href="/todoapp">back home</a>';
+}

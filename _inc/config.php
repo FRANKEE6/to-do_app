@@ -1,6 +1,9 @@
 <?php
+// Absolute app root adress
+$domov = "E:/Programovanie/php_root/todoapp/";
+
 // Require Composer's autoloader.
-require 'assets/vendor/autoload.php';
+require $domov . 'assets/vendor/autoload.php';
 
 // Using Medoo namespace.
 use Medoo\Medoo;
