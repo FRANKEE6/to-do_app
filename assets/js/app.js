@@ -1,6 +1,7 @@
 $(document).ready(function () {
   (function ($) {
-    var form = $("#add-form");
+    var form = $("#add-form"),
+      input = $("#text");
 
     form.on("submit", function (event) {
       event.preventDefault();
@@ -12,7 +13,13 @@ $(document).ready(function () {
       });
 
       req.done(function (data) {
-        console.log(data);
+        if (data == "success") {
+          var li = $('<li class="list-group-item">' + input.val() + '</li>');
+
+          li.hide()
+            .appendTo('.list-group')
+            .fadeIn();
+        }
       });
     });
   })(jQuery);

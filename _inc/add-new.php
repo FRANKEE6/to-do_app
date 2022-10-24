@@ -13,6 +13,6 @@ $id = $database->insert('items', [
 
 // Overenie úspešnosti vloženia
 if ($id) {
-    header('Location:' . $domovindex);
-    die();
+    //header('Location:' . $domovindex);
+    die('success');
 }
