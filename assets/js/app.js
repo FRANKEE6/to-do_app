@@ -3,6 +3,8 @@ $(document).ready(function () {
     var form = $("#add-form"),
       input = $("#text");
 
+    input.val('').focus();
+    
     form.on("submit", function (event) {
       event.preventDefault();
 
@@ -25,5 +27,13 @@ $(document).ready(function () {
         }
       });
     });
+
+    input.on('keypress', function(event){
+      if (event.which == 13){
+        form.submit();
+        return false;
+      }
+    });
+
   })(jQuery);
 });
