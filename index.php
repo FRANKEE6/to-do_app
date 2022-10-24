@@ -1,4 +1,4 @@
-<?php include "./_partials/header.php" ?>
+<?php include "_partials/header.php" ?>
 
 <div class="container">
     <div class="row">
@@ -8,7 +8,7 @@
         </ul>
 
 
-        <form action="./_inc/add-new.php" class="col-sm-6" method="POST">
+        <form action="_inc/add-new.php" class="col-sm-6" method="POST">
             <p class="form-group">
                 <textarea name="message" id="text" rows="3" class="form-control" placeholder="Čo by si rád zrobil?"></textarea>
             </p>
@@ -20,4 +20,4 @@
 </div>
 
 
-<?php include "./_partials/footer.php" ?>
+<?php include "_partials/footer.php" ?>
