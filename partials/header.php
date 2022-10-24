@@ -12,7 +12,7 @@
 <body>
 
     <header>
-
+        <h1>Moja to-do appka</h1>
     </header>
 
     <main>
