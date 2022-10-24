@@ -9,7 +9,12 @@
 
 
         <form action="add-new.php" class="col-sm-6">
-            <div class="form-group"><textarea name="message" id="text" rows="3" class="form-control" placeholder="Čo by si rád zrobil?"></textarea></div>
+            <p class="form-group">
+                <textarea name="message" id="text" rows="3" class="form-control" placeholder="Čo by si rád zrobil?"></textarea>
+            </p>
+            <p class="form-group">
+                <input class="btn btn-sm btn-danger" type="submit" value="Add new">
+            </p>
         </form>
     </div>
 </div>
