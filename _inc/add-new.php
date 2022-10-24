@@ -13,6 +13,6 @@ $id = $database->insert('items', [
 
 // Overenie úspešnosti vloženia
 if ($id) {
-    echo 'new item added!<br>';
-    echo '<a href="/todoapp">back home</a>';
+    header('Location: /todoapp');
+    die();
 }
