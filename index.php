@@ -1,6 +1,7 @@
 <?php include "_partials/header.php" ?>
 
-<?php $data = $database->select('items', 'text'); ?>
+<?php $data = $database->select('items', 'text');
+?>
 
 <div class="container">
     <div class="row">
