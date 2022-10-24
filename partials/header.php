@@ -8,6 +8,7 @@
     <title>to-do app</title>
     <link rel="stylesheet" href="/todoapp/assets/node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="/todoapp/assets/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/todoapp/assets/css/bootstrap_vapor.min.css">
     <link rel="stylesheet" href="/todoapp/assets/css/stylesheet.css">
 </head>
 
