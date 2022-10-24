@@ -14,11 +14,14 @@ $(document).ready(function () {
 
       req.done(function (data) {
         if (data == "success") {
-          var li = $('<li class="list-group-item">' + input.val() + '</li>');
+          var li = $('<li class="list-group-item">' + input.val() + '</li>'),
+              libg = $('.list-group-item').css('background-color');
 
-          li.hide()
-            .appendTo('.list-group')
-            .fadeIn();
+          li.appendTo('.list-group')
+            .css({backgroundColor: '#3cf281'})
+            .delay(300)
+            .animate({backgroundColor: libg});
+
         }
       });
     });
