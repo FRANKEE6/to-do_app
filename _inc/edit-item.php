@@ -15,6 +15,6 @@ $id = $database->update(
 
 // Ak bolo ID úspešne nájdené, kód sa ukončí s hláškou 'success' ktorú odchytáva java-script
 if ($id) {
-    header('Location: http://localhost/todoapp/index.php');
+    header('Location:' . $domovindex);
     die('success');
 }
