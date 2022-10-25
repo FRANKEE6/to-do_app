@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="assets/node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/bootstrap_vapor.min.css">
     <link rel="stylesheet" href="assets/css/stylesheet.css">
+    <script>
+        var baseUrl = '<?php echo $base_url_index ?>';
+    </script>
 </head>
 
 <body>

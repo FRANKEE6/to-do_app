@@ -27,7 +27,7 @@ $(document).ready(function () {
         if (data == "success") {
 
           // Pošleme ajax aby nám vytiahol novopridaný li element
-          $.ajax({url: '/todoapp'}).done(function(html){
+          $.ajax({url: baseUrl}).done(function(html){
             var newItem = $(html).find('li:last-child'),
                 // Zistíme aktuálnu farbu pozadia ostatných prvkov v zozname
                 libg = $('.list-group-item').css('background-color');
