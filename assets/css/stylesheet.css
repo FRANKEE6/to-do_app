@@ -10,3 +10,11 @@ body {
 h2 {
   text-align: center;
 }
+
+.controls {
+  float: right;
+}
+
+.controls a:last-of-type {
+  margin-left: 10px;
+}

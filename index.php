@@ -13,7 +13,13 @@ $data = $database->select('items', 'text');
             <?php
             // foreach loop nám vytvorí všetky databázové texty ako li elementy
             foreach ($data as $item) {
-                echo '<li class="list-group-item">' . $item . '</li>';
+                echo '<li class="list-group-item">';
+                echo '<div>' . $item . '<span class="controls">';
+                echo '<a href="edit.php?id=" class="edit-link">';
+                echo '<i class="fa-solid fa-pen-to-square" title="edit"></i></a>';
+                echo '<a href="delete.php?id=" class="delete-link">';
+                echo '<i class="fa-sharp fa-solid fa-trash text-danger" title="delete"></i></a>';
+                echo '</span></div></li>';
             }
             ?>
         </ul>
