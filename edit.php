@@ -30,9 +30,9 @@ include_once "_partials/header.php";
             <p class="form-group">
                 <!-- Skrytý input vo formulári ktorý v sebe nesie ID ktoré sme dostali-->
                 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                <input class="btn btn-sm btn-danger" type="submit" value="edit item">
-                <span>
-                    <a class="btn btn-sm btn-info" role="button" href="<?php echo $domovindex ?>">Go back</a>
+                <input class="btn btn-lg btn-danger" type="submit" value="Edit item">
+                <span class="goback">
+                    <a class="btn btn-sm btn-secondary" role="button" href="<?php echo $domovindex ?>">Go back</a>
                 </span>
             </p>
         </form>
