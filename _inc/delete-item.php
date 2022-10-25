@@ -9,6 +9,6 @@ $affected = $database->delete(
 
 // Ak bolo ID úspešne nájdené, kód sa ukončí s hláškou 'success' ktorú odchytáva java-script
 if ($affected) {
-    header('Location:' . $domovindex);
+    header('Location:' . $base_url_index);
     die('success');
 }
