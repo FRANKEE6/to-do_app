@@ -63,5 +63,9 @@ $(document).ready(function () {
      * DELETE formulár
      */
 
+    $('#delete-form').on('submit', function(event){
+      return confirm('4 real bruh?')
+    });
+
   })(jQuery);
 });
