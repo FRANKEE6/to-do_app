@@ -1,4 +1,4 @@
-<?php include "_partials/header.php" ?>
+<?php include_once "_partials/header.php" ?>
 
 <?php $data = $database->select('items', 'text');
 ?>
@@ -26,4 +26,4 @@
 </div>
 
 
-<?php include "_partials/footer.php" ?>
+<?php include_once "_partials/footer.php" ?>

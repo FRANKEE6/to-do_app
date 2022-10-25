@@ -5,7 +5,7 @@ $item = $database->get("items", "text", [
     "id" => $_GET['id']
 ]);
 
-include "_partials/header.php";
+include_once "_partials/header.php";
 ?>
 
 <h2>Edit sekcia</h2>
@@ -25,4 +25,4 @@ include "_partials/header.php";
     </div>
 </div>
 
-<?php include "_partials/footer.php" ?>
+<?php include_once "_partials/footer.php" ?>
