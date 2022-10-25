@@ -4,9 +4,11 @@ $(document).ready(function () {
     /**
      * ADD formulár
      */
-
+    
     var form = $("#add-form"),
-      input = form.find("#text");
+    input = form.find("#text"),
+    lgi = $('.list-group-item'),
+    libg = lgi.css('background-color');
 
     // input textarea na index.php bude vždy prázdna a vo focuse
     input.val('').focus();
@@ -28,9 +30,7 @@ $(document).ready(function () {
 
           // Pošleme ajax aby nám vytiahol novopridaný li element
           $.ajax({url: baseUrl}).done(function(html){
-            var newItem = $(html).find('li:last-child'),
-                // Zistíme aktuálnu farbu pozadia ostatných prvkov v zozname
-                libg = $('.list-group-item').css('background-color');
+            var newItem = $(html).find('li:last-child');
 
                 // li element pridáme do ul zoznamu s animáciou
                 newItem.appendTo('.list-group')
@@ -56,14 +56,14 @@ $(document).ready(function () {
     /**
      * EDIT formulár
      */
-
+    // Označenie textu v edit.php
     $('#edit-form').find('#text').select();
 
 
     /**
      * DELETE formulár
      */
-
+    // potvrdenie vymazania v delete.php
     $('#delete-form').on('submit', function(event){
       return confirm('4 real bruh?')
     });
