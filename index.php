@@ -3,21 +3,21 @@
 include_once "_partials/header.php" ?>
 
 <?php
-// Uložíme do premennej pole obsahujúce všetky 'text' z databázy
-$data = $database->select('items', 'text');
+// Uložíme do premennej pole obsahujúce všetky text a id z databázy
+$data = $database->select('items', ['id', 'text']);
 ?>
 
 <div class="container">
     <div class="row">
         <ul class="list-group col-sm-6">
             <?php
-            // foreach loop nám vytvorí všetky databázové texty ako li elementy
+            // foreach loop nám vytvorí všetky databázové texty ako li elementy aj odkazmi na edit a delete
             foreach ($data as $item) {
                 echo '<li class="list-group-item">';
-                echo '<div>' . $item . '<span class="controls">';
-                echo '<a href="edit.php?id=" class="edit-link">';
+                echo '<div>' . $item['text'] . '<span class="controls">';
+                echo '<a href="edit.php?id=' . $item['id'] . '" class="edit-link">';
                 echo '<i class="fa-solid fa-pen-to-square" title="edit"></i></a>';
-                echo '<a href="delete.php?id=" class="delete-link">';
+                echo '<a href="delete.php?id=' . $item['id'] . '" class="delete-link">';
                 echo '<i class="fa-sharp fa-solid fa-trash text-danger" title="delete"></i></a>';
                 echo '</span></div></li>';
             }
