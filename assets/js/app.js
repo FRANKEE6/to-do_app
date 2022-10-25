@@ -1,5 +1,10 @@
 $(document).ready(function () {
   (function ($) {
+
+    /**
+     * ADD formulár
+     */
+
     var form = $("#add-form"),
       input = form.find("#text");
 
@@ -46,6 +51,17 @@ $(document).ready(function () {
         return false;
       }
     });
+
+    /**
+     * EDIT formulár
+     */
+
+    $('#edit-form').find('#text').select();
+
+
+    /**
+     * DELETE formulár
+     */
 
   })(jQuery);
 });

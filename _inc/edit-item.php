@@ -14,7 +14,7 @@ $affected = $database->update(
 );
 
 // Ak bolo ID úspešne nájdené, kód sa ukončí s hláškou 'success' ktorú odchytáva java-script
-if ($$affected) {
+if ($affected) {
     header('Location:' . $domovindex);
     die('success');
 }
