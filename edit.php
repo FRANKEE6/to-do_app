@@ -5,6 +5,12 @@ $item = $database->get("items", "text", [
     "id" => $_GET['id']
 ]);
 
+if (!$item) {
+    header("http/1.0 404 Not Found");
+    include_once "404.php";
+    die();
+}
+
 include_once "_partials/header.php";
 ?>
 
@@ -16,7 +22,7 @@ include_once "_partials/header.php";
     <div class="row">
         <form id="edit-form" action="_inc/edit-new.php" class="col-sm-6" method="POST">
             <p class="form-group">
-                <textarea class="form-control" name="message" id="text" rows="3" class="form-control"></textarea>
+                <textarea class="form-control" name="message" id="text" rows="3" class="form-control"><?php echo $item ?></textarea>
             </p>
             <p class="form-group">
                 <input class="btn btn-sm btn-danger" type="submit" value="edit item">
