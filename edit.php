@@ -20,11 +20,6 @@ include_once "_partials/header.php";
 
 <h2>Edit sekcia</h2>
 
-<?php
-
-$data = $database->select('items', 'text');
-?>
-
 <!-- Formulár ktorý odošle našu úpravu na podstránku edit-item.php kde sa spracuje. Text area obsahuje pôvodný text ktorý sa nachádza pod našim ID -->
 <div class="container">
     <div class="row">
