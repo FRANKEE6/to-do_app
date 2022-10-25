@@ -9,7 +9,7 @@ $data = $database->select('items', ['id', 'text']);
 
 <div class="container">
     <div class="row">
-        <ul class="list-group col-sm-6">
+        <ul id="item-list" class="list-group col-sm-6">
             <?php
             // foreach loop nám vytvorí všetky databázové texty ako li elementy aj odkazmi na edit a delete
             foreach ($data as $item) {

@@ -2,14 +2,22 @@ $(document).ready(function () {
   (function ($) {
 
     /**
+     * Variables
+     */
+    var form = $("#add-form"),
+    input = form.find("#text"),
+    list = $('#item-list'),
+    lgi = $('.list-group-item'),
+    animation = {
+      startColor: '#3cf281',
+      endColor: lgi.css('background-color') || '#250d49',
+      delay: 300
+    }
+
+    /**
      * ADD formulár
      */
     
-    var form = $("#add-form"),
-    input = form.find("#text"),
-    lgi = $('.list-group-item'),
-    libg = lgi.css('background-color');
-
     // input textarea na index.php bude vždy prázdna a vo focuse
     input.val('').focus();
     
@@ -33,10 +41,10 @@ $(document).ready(function () {
             var newItem = $(html).find('li:last-child');
 
                 // li element pridáme do ul zoznamu s animáciou
-                newItem.appendTo('.list-group')
-                  .css({backgroundColor: '#3cf281'})
-                  .delay(300)
-                  .animate({backgroundColor: libg});
+                newItem.appendTo(list)
+                  .css({backgroundColor: animation.startColor})
+                  .delay(animation.delay)
+                  .animate({backgroundColor: animation.endColor});
           });
           // vyčistím formulár
           input.val('');
