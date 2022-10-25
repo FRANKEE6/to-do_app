@@ -28,6 +28,8 @@ include_once "_partials/header.php";
                 <textarea class="form-control" name="message" id="text" rows="3" class="form-control"><?php echo $item ?></textarea>
             </p>
             <p class="form-group">
+                <!-- Skrytý input vo formulári ktorý v sebe nesie ID ktoré sme dostali-->
+                <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                 <input class="btn btn-sm btn-danger" type="submit" value="edit item">
             </p>
         </form>
