@@ -31,6 +31,9 @@ $(document).ready(function () {
             .delay(300)
             .animate({backgroundColor: libg});
 
+          // vyčistím formulár
+          input.val('');
+
         }
       });
     });

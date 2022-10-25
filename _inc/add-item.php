@@ -13,6 +13,6 @@ $id = $database->insert('items', [
 ]);
 
 // Overenie úspešnosti vloženia
-if ($id) {
+if ($id = $database->id()) {
     die('success');
 }
