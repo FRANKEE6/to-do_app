@@ -20,7 +20,7 @@ include_once "_partials/header.php";
 ?>
 <div class="container">
     <div class="row">
-        <form id="edit-form" action="_inc/edit-new.php" class="col-sm-6" method="POST">
+        <form id="edit-form" action="_inc/edit-item.php" class="col-sm-6" method="POST">
             <p class="form-group">
                 <textarea class="form-control" name="message" id="text" rows="3" class="form-control"><?php echo $item ?></textarea>
             </p>

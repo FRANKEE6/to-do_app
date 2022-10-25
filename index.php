@@ -14,12 +14,12 @@
         </ul>
 
 
-        <form id="add-form" action="_inc/add-new.php" class="col-sm-6" method="POST">
+        <form id="add-form" action="_inc/add-item.php" class="col-sm-6" method="POST">
             <p class="form-group">
                 <textarea name="message" id="text" rows="3" class="form-control" placeholder="Čo by si rád zrobil?"></textarea>
             </p>
             <p class="form-group">
-                <input class="btn btn-sm btn-danger" type="submit" value="Add new">
+                <input class="btn btn-sm btn-danger" type="submit" value="Add item">
             </p>
         </form>
     </div>
