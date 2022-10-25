@@ -13,7 +13,7 @@ $data = $database->select('items', ['id', 'text']);
             <?php
             // foreach loop nám vytvorí všetky databázové texty ako li elementy aj odkazmi na edit a delete
             foreach ($data as $item) {
-                echo '<li class="list-group-item">';
+                echo '<li id="item-' . $item['id'] . '" class="list-group-item">';
                 echo '<div>' . $item['text'] . '<span class="controls">';
                 echo '<a href="edit.php?id=' . $item['id'] . '" class="edit-link">';
                 echo '<i class="fa-solid fa-pen-to-square" title="edit"></i></a>';

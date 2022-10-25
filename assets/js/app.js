@@ -25,20 +25,21 @@ $(document).ready(function () {
       // Po ukončení ajaxu skontrolujeme či nám podstránka vrátila success
       req.done(function (data) {
         if (data == "success") {
-          // Html kód s vloženou hodnotou z odoslaného submitu
-          var li = $('<li class="list-group-item">' + input.val() + '</li>'),
-              // Zistíme aktuálnu farbu pozadia ostatných prvkov v zozname
-              libg = $('.list-group-item').css('background-color');
 
-          // li element pridáme do ul zoznamu s animáciou
-          li.appendTo('.list-group')
-            .css({backgroundColor: '#3cf281'})
-            .delay(300)
-            .animate({backgroundColor: libg});
+          // Pošleme ajax aby nám vytiahol novopridaný li element
+          $.ajax({url: '/todoapp'}).done(function(html){
+            var newItem = $(html).find('li:last-child'),
+                // Zistíme aktuálnu farbu pozadia ostatných prvkov v zozname
+                libg = $('.list-group-item').css('background-color');
 
+                // li element pridáme do ul zoznamu s animáciou
+                newItem.appendTo('.list-group')
+                  .css({backgroundColor: '#3cf281'})
+                  .delay(300)
+                  .animate({backgroundColor: libg});
+          });
           // vyčistím formulár
           input.val('');
-
         }
       });
     });
