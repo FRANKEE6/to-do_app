@@ -1,4 +1,5 @@
 <?php
+// Stránka ktorá užívateľovi oznámi, že položka ktorú hľadal nebola nájdená
 include_once "_partials/header.php";
 ?>
 

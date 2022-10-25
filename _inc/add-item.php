@@ -1,7 +1,8 @@
 <?php
+// potiahneme config
 require_once 'config.php';
 
-// timestamp
+// Vytvoríme timestamp pre našu časovú zónu
 date_default_timezone_set("Europe/Bratislava");
 $timestamp = date('Y-m-d H:i:s');
 
@@ -13,6 +14,5 @@ $id = $database->insert('items', [
 
 // Overenie úspešnosti vloženia
 if ($id) {
-    //header('Location:' . $domovindex);
     die('success');
 }
