@@ -57,3 +57,49 @@ function base_redirect($status = '')
     header("Location: $base_url_index");
     die($status);
 }
+
+function form_create($form_id, $placeholder = 'Čo by si rád zrobil?')
+// Funkcia vytvorí požadovaný typ formuláru
+{
+    global $item;
+    global $base_url_index;
+
+    switch ($form_id) {
+        case 'add':
+            $text_area_extras = 'rows="3" placeholder="' . $placeholder . '">';
+            $submit_extras = 'btn-sm btn-danger';
+            break;
+
+        case 'edit':
+            $text_area_extras = 'rows="3">' . $item;
+            $submit_extras = 'btn-lg btn-info';
+            break;
+
+        case 'delete':
+            $text_area_extras = 'rows="1" disabled>' . $item;
+            $submit_extras = 'btn-lg btn-danger';
+            break;
+    }
+
+    // textarea
+    echo '<form id="' . $form_id . '-form" action="_inc/' . $form_id . '-item.php" class="col-sm-6" method="POST">';
+    echo '<p class="form-group">';
+    echo '<textarea class="form-control" name="message" id="text" ' . $text_area_extras . '</textarea></p>';
+
+    // submit and other
+    echo '<p class="form-group">';
+
+    if ($form_id != 'add') {
+        echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
+    }
+
+    echo '<input class="btn ' . $submit_extras . '" type="submit" value="' . ucfirst($form_id) . ' item">';
+
+    if ($form_id != 'add') {
+        echo '<span class="goback">
+            <a class="btn btn-sm btn-secondary" role="button" href="' .
+            $base_url_index . '">Go back</a></span>';
+    }
+
+    echo '</p></form>';
+}
