@@ -35,7 +35,6 @@ $(document).ready(function () {
 
       // Po ukončení ajaxu skontrolujeme či nám podstránka vrátila success
       req.done(function (data) {
-        console.log(data);
         if (data.status === "success") {
 
           // Pošleme ajax aby nám vytiahol novopridaný li element
