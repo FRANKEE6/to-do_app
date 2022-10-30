@@ -5,8 +5,6 @@ include_once "_partials/header.php" ?>
 <?php
 // Uložíme do premennej pole obsahujúce všetky text a id z databázy
 $data = $database->select('items', ['id', 'text']);
-if (!sizeof($data) > 0)
-    $items_in_DB = false;
 ?>
 
 <div class="container">
