@@ -37,3 +37,14 @@ function is_ajax()
     // Skontroluje, či požiadavka prišla cez ajax
     return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest');
 }
+
+function create_list($item)
+{
+    echo '<li id="item-' . $item['id'] . '" class="list-group-item">';
+    echo '<div>' . $item['text'] . '<span class="controls">';
+    echo '<a href="edit.php?id=' . $item['id'] . '" class="edit-link">';
+    echo '<i class="fa-solid fa-pen-to-square" title="edit"></i></a>';
+    echo '<a href="delete.php?id=' . $item['id'] . '" class="delete-link">';
+    echo '<i class="fa-sharp fa-solid fa-trash text-danger" title="delete"></i></a>';
+    echo '</span></div></li>';
+}

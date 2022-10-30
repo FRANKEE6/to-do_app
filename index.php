@@ -5,6 +5,8 @@ include_once "_partials/header.php" ?>
 <?php
 // Uložíme do premennej pole obsahujúce všetky text a id z databázy
 $data = $database->select('items', ['id', 'text']);
+if (!sizeof($data) > 0)
+    $items_in_DB = false;
 ?>
 
 <div class="container">
@@ -12,14 +14,12 @@ $data = $database->select('items', ['id', 'text']);
         <ul id="item-list" class="list-group col-sm-6">
             <?php
             // foreach loop nám vytvorí všetky databázové texty ako li elementy aj odkazmi na edit a delete
-            foreach ($data as $item) {
-                echo '<li id="item-' . $item['id'] . '" class="list-group-item">';
-                echo '<div>' . $item['text'] . '<span class="controls">';
-                echo '<a href="edit.php?id=' . $item['id'] . '" class="edit-link">';
-                echo '<i class="fa-solid fa-pen-to-square" title="edit"></i></a>';
-                echo '<a href="delete.php?id=' . $item['id'] . '" class="delete-link">';
-                echo '<i class="fa-sharp fa-solid fa-trash text-danger" title="delete"></i></a>';
-                echo '</span></div></li>';
+            if (!sizeof($data) > 0) {
+                echo '<li>Please add your first item</li>';
+            } else {
+                foreach ($data as $item) {
+                    create_list($item);
+                }
             }
             ?>
         </ul>
