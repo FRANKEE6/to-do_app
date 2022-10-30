@@ -50,3 +50,9 @@ function get_item()
     // Ak je všetko v poriadku, funkcia vráti náš prvok z databázy
     return $item;
 }
+
+function is_ajax()
+{
+    // Skontroluje, či požiadavka prišla cez ajax
+    return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest');
+}

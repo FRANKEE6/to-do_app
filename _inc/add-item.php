@@ -12,11 +12,19 @@ $id = $database->insert('items', [
     'datetime' => $timestamp
 ]);
 
+if (!$id = $database->id()) die('error');
+
 // Overenie úspešnosti vloženia
-if ($id = $database->id()) {
+// Ak prišla požiadavka cez ajax
+if (is_ajax()) {
     $message = json_encode([
         'status' => 'success',
         'id' => $id
     ]);
     die($message);
+}
+// Ak sme neprišli cez ajax
+else {
+    header("Location: $base_url_index");
+    die();
 }
