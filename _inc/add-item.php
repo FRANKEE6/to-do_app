@@ -25,6 +25,5 @@ if (is_ajax()) {
 }
 // Ak sme neprišli cez ajax
 else {
-    header("Location: $base_url_index");
-    die();
+    base_redirect();
 }

@@ -39,6 +39,7 @@ function is_ajax()
 }
 
 function create_list($item)
+// Tvorba prvku zoznamu
 {
     echo '<li id="item-' . $item['id'] . '" class="list-group-item">';
     echo '<div>' . $item['text'] . '<span class="controls">';
@@ -47,4 +48,12 @@ function create_list($item)
     echo '<a href="delete.php?id=' . $item['id'] . '" class="delete-link">';
     echo '<i class="fa-sharp fa-solid fa-trash text-danger" title="delete"></i></a>';
     echo '</span></div></li>';
+}
+
+function base_redirect($status = '')
+// Presmerovanie na index.php
+{
+    global $base_url_index;
+    header("Location: $base_url_index");
+    die($status);
 }
