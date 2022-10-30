@@ -36,11 +36,11 @@ $(document).ready(function () {
       // Po ukončení ajaxu skontrolujeme či nám podstránka vrátila success
       req.done(function (data) {
         console.log(data);
-        if (data == "success") {
+        if (data.status === "success") {
 
           // Pošleme ajax aby nám vytiahol novopridaný li element
           $.ajax({url: baseUrl}).done(function(html){
-            var newItem = $(html).find('li:last-child');
+            var newItem = $(html).find('#item-' + data.id);
 
                 // li element pridáme do ul zoznamu s animáciou
                 newItem.appendTo(list)
