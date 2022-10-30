@@ -14,5 +14,9 @@ $id = $database->insert('items', [
 
 // Overenie úspešnosti vloženia
 if ($id = $database->id()) {
-    die('success');
+    $message = json_encode([
+        'status' => 'success',
+        'id' => $id
+    ]);
+    die($message);
 }

@@ -30,10 +30,12 @@ $(document).ready(function () {
         url: form.attr("action"),
         type: "POST",
         data: form.serialize(),
+        dataType: 'json'
       });
 
       // Po ukončení ajaxu skontrolujeme či nám podstránka vrátila success
       req.done(function (data) {
+        console.log(data);
         if (data == "success") {
 
           // Pošleme ajax aby nám vytiahol novopridaný li element
