@@ -2,20 +2,9 @@
 // Vyžiadame si config
 require_once '_inc/config.php';
 
-// Ak nebolo doručené ID vyhodíme 404 stránku
-if (!isset($_GET['id'])) {
-    show_404();
-}
-
-// Z databázy vytiahneme do premennej text ktorý budeme upravovať. Konkrétnu položku určí ID ktoré dostaneme GET metódou
-$item = $database->get("items", "text", [
-    "id" => $_GET['id']
-]);
-
-// Pokiaľ sa ID ktoré sme obdržali nenachádza v databáze, presmerujeme užívateľa na stránku 404 + zabijeme proces die()
-if (!$item) {
-    show_404();
-}
+// Funkcia overí všetky údaje a buď vráti spracované údaje alebo presmeruje na 404 podstránku
+$item = get_item();
+if (!$item) show_404();
 
 // Ak bolo ID úspešne nájdené v databáze, vložíme header a pokračujeme
 include_once "_partials/header.php";
