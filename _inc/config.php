@@ -17,3 +17,11 @@ $database = new Medoo([
     'username' => 'FRANKEE',
     'password' => '8EE2pknk'
 ]);
+
+// global functions
+function show_404()
+{
+    header("http/1.0 404 Not Found");
+    include_once "404.php";
+    die();
+}
