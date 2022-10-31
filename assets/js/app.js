@@ -14,6 +14,7 @@ $(document).ready(function () {
       delay: 300
     },
     editPath = '_inc/edit-item.php';
+    deletepath = '_inc/delete-item.php';
 
 
     /**
@@ -27,7 +28,7 @@ $(document).ready(function () {
     form.on("submit", function (event) {
       event.preventDefault();
 
-      // Ajax odbehne na podstánku add-item.php a vráti nám informácie
+      // Ajax pošle údaje na podstánku add-item.php a vráti nám status
       var req = $.ajax({
         url: form.attr("action"),
         type: "POST",
@@ -42,12 +43,15 @@ $(document).ready(function () {
           // Pošleme ajax aby nám vytiahol novopridaný li element
           $.ajax({url: baseUrl}).done(function(html){
             var newItem = $(html).find('#item-' + data.id);
+            
+            // Schováme edit link
+            newItem.find('.edit-link').css('display' , 'none');
 
-                // li element pridáme do ul zoznamu s animáciou
-                newItem.appendTo(list)
-                  .css({backgroundColor: animation.startColor})
-                  .delay(animation.delay)
-                  .animate({backgroundColor: animation.endColor});
+            // li element pridáme do ul zoznamu s animáciou
+            newItem.appendTo(list)
+              .css({backgroundColor: animation.startColor})
+              .delay(animation.delay)
+              .animate({backgroundColor: animation.endColor});
           });
           // vyčistím formulár
           input.val('');
@@ -120,9 +124,45 @@ $(document).ready(function () {
      * DELETE formulár
      */
     // potvrdenie vymazania v delete.php
-    $('#delete-form').on('submit', function(event){
+    $('#delete-form').on('submit', function(){
       return confirm('4 real bruh?')
     });
+
+    /**
+    * J-S ajax mazanie
+    */
+    var deleteRequest = $('.delete-link');
+
+    // po kliku na ikonu mazania zabránime presmerovaniu
+    deleteRequest.click(function(event){
+      event.preventDefault();
+      var contentID = $(this).parents('.list-group-item').attr('id').slice(5),
+          that = $(this).parents('.list-group-item');
+
+      // Necháme si akciu potvrdiť užívateľom
+      if (! confirm('To myslíš vážne?')){
+        return;
+      }
+      else {
+        // Vyšleme ajax s požiadavkou na zmazanie
+        var req = $.ajax({
+          url: deletepath,
+          type: "POST",
+          data: {"id" : contentID},
+          dataType: 'json'
+        });
+  
+        // V pípade úspechu odstánime element animáciou
+        req.done(function (data) {
+          if (data.status === "success") {
+            $(that)
+            .css({backgroundColor: '#e44c55'})
+            .fadeOut(1000);
+          }
+        });
+      }
+    });
+
     
   })(jQuery);
 });
