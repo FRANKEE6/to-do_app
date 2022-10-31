@@ -15,15 +15,4 @@ $id = $database->insert('items', [
 if (!$id = $database->id()) die('error');
 
 // Overenie úspešnosti vloženia
-// Ak prišla požiadavka cez ajax
-if (is_ajax()) {
-    $message = json_encode([
-        'status' => 'success',
-        'id' => $id
-    ]);
-    die($message);
-}
-// Ak sme neprišli cez ajax
-else {
-    base_redirect();
-}
+base_redirect();

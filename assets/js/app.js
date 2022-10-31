@@ -12,7 +12,9 @@ $(document).ready(function () {
       startColor: '#3cf281',
       endColor: lgi.css('background-color') || '#250d49',
       delay: 300
-    }
+    },
+    editPath = '_inc/edit-item.php';
+
 
     /**
      * ADD formulár
@@ -67,8 +69,53 @@ $(document).ready(function () {
      */
     // Označenie textu v edit.php
     $('#edit-form').find('#text').select();
+    
+    
+    /**
+     * J-S ajax editácia
+     */
+    // Ak je povolený script, schováme edit buttony
+    $('.edit-link').hide();
+    
+    // Dvojklik na položku umožní editovať obsah a nastaví focus
+    lgi.dblclick(function(){
+      var divText = $(this).children(),
+      that = $(this);
+      
+      divText.attr('contenteditable', "true");
+      divText.focus();
+      
+      // Enter odpáli ajax ktorý získa a pošle údaje do edit-item.php
+      divText.keypress(function(event){
+        if (event.which == 13){
+          var divContent = $(this).text(),
+              contentID = $(this).parent().attr('id').slice(5);
 
-
+          var req = $.ajax({
+            url: editPath,
+            type: "POST",
+            data: {"id" : contentID , "message" : divContent},
+            dataType: 'json'
+          });
+          
+          // ak bol ajax úspešný, vypneme editovateľnosť položky a spustíme animáciu
+          req.done(function (data) {
+            if (data.status === "success") {
+              $(that).children().attr('contenteditable', "false");
+              $(that)
+              .css({backgroundColor: animation.startColor})
+              .delay(animation.delay)
+              .animate({backgroundColor: animation.endColor});
+            }
+          });
+          
+          // zabráni pridaniu enteru
+          return false;
+        }
+      })
+    });
+        
+        
     /**
      * DELETE formulár
      */
@@ -76,6 +123,6 @@ $(document).ready(function () {
     $('#delete-form').on('submit', function(event){
       return confirm('4 real bruh?')
     });
-
+    
   })(jQuery);
 });

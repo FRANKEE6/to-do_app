@@ -54,8 +54,21 @@ function base_redirect($status = '')
 // Presmerovanie na index.php
 {
     global $base_url_index;
-    header("Location: $base_url_index");
-    die($status);
+    global $id;
+
+    // Ak sme prišli cez ajax
+    if (is_ajax()) {
+        $message = json_encode([
+            'status' => 'success',
+            'id' => $id
+        ]);
+        die($message);
+    }
+    // Ak nie sme cez ajax
+    else {
+        header("Location: $base_url_index");
+        die($status);
+    }
 }
 
 function form_create($form_id, $placeholder = 'Čo by si rád zrobil?')
